@@ -26,16 +26,19 @@ rsi_period = 14
 ema_period = 9
 rsi_high = 55
 rsi_low = 45
+macd_fast_window = 12
+macd_slow_window = 26
+macd_signal_window = 9
 i = 0
 binance_taker_fee = 0.0004
 
 # # Indicators function
 df_indicators = indicators.rsi(df, rsi_period, rsi_high, rsi_low)
 df_indicators = indicators.ema(df_indicators, ema_period)
-df = df_indicators[["timestamp", "close", "rsi_signal", "ema_signal"]]
+macd_indicators = indicators.macd(ema_indicators, macd_fast_window, macd_slow_window, macd_signal_window)
 
 # Function that check the indicators, if they are met expectations, makes decisions
-signal = exchange.signal(df)
+signal = exchange.signal(macd_indicators)
 
 # Add a column in DataFrame with default value 0
 

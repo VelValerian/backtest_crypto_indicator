@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "backtest-crypto-indicator"
+version = "0.1.0"
+description = ""
+authors = ["Valerian <@VelValerian>"]
+readme = "README.md"
+packages = [{include = "backtest_crypto_indicator"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pandas = "^2.0.3"
+pandas-ta = "^0.3.14b0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
